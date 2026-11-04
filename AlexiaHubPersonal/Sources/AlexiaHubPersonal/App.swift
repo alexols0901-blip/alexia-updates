@@ -253,7 +253,16 @@ struct PersonalHub: View {
                     Text(subtitle).font(.caption).foregroundStyle(.secondary)
                 }
                 Spacer()
-                Button("Open " + name, action: action).buttonStyle(.borderedProminent)
+                Button(action: action) {
+                    Text("Open " + name)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 8)
+                        .foregroundStyle(.white)
+                        .background(Color.accentColor, in: RoundedRectangle(cornerRadius: 6))
+                        // Include the label's padding in the button's hit area.
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
             }.padding(16)
         }
     }
